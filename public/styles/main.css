@@ -83,14 +83,14 @@
 /*Css added by Sumant*/
 /* Put your css in here */
 body {
-      padding-top: 5px;
+      padding-top: 0px;
       background-color: #E0ECF8;
     }
     
     @media (max-width: 979px) {
       /* Remove any padding from the body */
       body {
-        padding-top: 5px;
+        padding-top: 0px;
       }
     }
 .custom-thumbnail{
@@ -125,4 +125,22 @@ body {
 }
 .page-content .panel .panel{
   background-color: white;
+}
+.navbar img
+{
+  height: 45px;
+  margin-top: 4px; 
+}
+  
+.custom-navbar img.special-img 
+{
+    position: relative;
+    top: -10px;
+    float: left;
+    left: -5px;
+    height: 30px;
+}
+
+.custom-modal .center-block{
+  text-align: center;
 }

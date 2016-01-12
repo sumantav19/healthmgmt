@@ -1,4 +1,39 @@
-<div class="row">
+<div class="header">
+      <div class="navbar custom-navbar navbar-default" role="navigation">
+        <div class="container-fluid"> 
+                  
+          <!-- <p class="navbar-right">
+            <a href="#" class="navbar-link">{{customer.Name}} </a></p>
+          <img class="navbar-right" src="http://stock.wikimini.org/w/images/9/95/Gnome-stock_person-avatar-profile.png" alt="...">   --> 
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+               Notification <span class="badge">3</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li class="bg-danger"><a href="" data-toggle="modal" data-target="#notificationOptions" ng-click="changeModalTab('first')">Bp is very high</a></li>
+                  <li class="divider"></li>
+                  <li class="bg-danger"><a href="" data-toggle="modal" data-target="#notificationOptions" ng-click="changeModalTab('heartRateFluctuation')">Heart Rate Is Fluctuating</a></li>
+                  <li class="divider"></li>
+                  <li class="bg-danger"><a href="" data-toggle="modal" data-target="#notificationOptions" ng-click="changeModalTab('medicineStock')">Medicine Stock Almost Over</a></li>
+                            <!--<li class="divider"></li>
+                <li><a href=""><i class="fa fa-sign-out"></i> Sign-out</a></li> -->
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle profile-image" data-toggle="dropdown">
+              <img src="http://stock.wikimini.org/w/images/9/95/Gnome-stock_person-avatar-profile.png" class="img-circle special-img"> {{customer.Name}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href=""><i class="fa fa-cog"></i> Account</a></li>
+                            <li class="divider"></li>
+                <li><a href=""><i class="fa fa-sign-out"></i> Sign-out</a></li>
+              </ul>
+            </li>
+          </ul>        
+        </div>
+      </div>
+    </div>
+</div>
+<!-- <div class="row">
   <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 pull-right">
      <div class="">
               <a href="#" class="thumbnail custom-thumbnail">
@@ -11,7 +46,8 @@
               </a>
     </div>
   </div>
-</div>
+</div> -->
+<div class="container-fluid">
 <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 
@@ -131,3 +167,200 @@
         </div>
       </div>
     </div>
+</div>
+
+
+<div class="modal fade custom-modal" id="notificationOptions" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div ng-switch on="notificationModalTab">
+        <div ng-switch-when="first">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Would You like to opt for the</h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <a class="btn btn-default" ng-click="changeModalTab('pharmacy')">Pharmacy Service(High)</a>
+              <br>
+              <a class="btn btn-default">Hospital Service(Medium)</a>
+              <br>
+              <a class="btn btn-default">Cab Service(Low)</a>
+            </div>
+          </div>
+        </div>
+        <div ng-switch-when="pharmacy">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Preffered Pharmacy : {{customer.Preferred_Pharmacy}} </h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <p>List of Medicines prescribed Earlier</p>
+              <br>
+              <textarea value="Medicine 1"></textarea>
+              <br>
+              <a class="btn btn-default" ng-click="changeModalTab('pharmacyPickUp')">Place Order</a>
+              
+            </div>
+          </div>
+        </div>
+        <div ng-switch-when="pharmacyPickUp">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Would You like to opt for </h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <a class="btn btn-default" ng-click="changeModalTab('pharmacyPickupOrderConfirmation')">Pick up medicine from Store (High)</a>
+              <br>
+              <a class="btn btn-default">Door Delivery (Medium)</a>              
+            </div>
+          </div>
+        </div>
+        <div ng-switch-when="pharmacyPickupOrderConfirmation">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Order confirmation </h4>
+          </div>
+          <div class="modal-body">
+            
+              <p>Order placed for medicines. </p>
+              <p>Order Number ON11001</p>
+              <p>Preferred time to take away medicine from store is 5-6 PM</p>
+              <br>
+              <br>
+            <div class="center-block"> 
+              <h5>Would you like to opt for</h5>
+              <a class="btn btn-default" ng-click="changeModalTab('pharmacyPickupOrderCabBookingConfirmation')">Cab Service (Medium)</a>
+              <br>
+              <a class="btn btn-default">Hospital Service (low)</a>              
+            </div>
+          </div>
+        </div>
+
+
+        <div ng-switch-when="pharmacyPickupOrderCabBookingConfirmation">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Order confirmation </h4>
+          </div>
+          <div class="modal-body">
+            
+            <p>Cab Booking Successful</p>
+            <p>Booking Number CB11001</p>
+            <p>Pick up time is 5.30 P</p>
+          </div>
+        </div>   
+
+
+        <div ng-switch-when="heartRateFluctuation">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Would You like to opt for the</h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <a class="btn btn-default" ng-click="changeModalTab('heartRateFluctuationAppointMent')">Hospital Service(High)</a>
+              <br>
+              <a class="btn btn-default">Cab Service(Medium)</a>
+              <br>
+              <a class="btn btn-default">Pharmacy Service (Low)</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div ng-switch-when="heartRateFluctuationAppointMent">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Appointment Confirmation</h4>
+          </div>
+          <div class="modal-body">
+            <p>{{customer.Preferred_Doctor}} is Available in {{customer.Preferred_Hospital}} </p>
+            <br>
+
+            <p>Doctor booking successful</p>
+            <p>Appointment time : 6-6.30 PM</p>
+            <br>
+            <br>
+            <p>Cab Booking Successful</p>
+            <p>Booking Number CB11001</p>
+            <p>Pick up time is 5.30 P</p>
+          </div>
+        </div>
+
+        <div ng-switch-when="medicineStock">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Would You like to opt for the</h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <a class="btn btn-default" ng-click="changeModalTab('pharmacyMedicineStock')">Pharmacy Service (High)</a>
+              <br>
+              <a class="btn btn-default">Hospital Service(Medium)</a>
+              <br>
+              <a class="btn btn-default">Cab Service (Low)</a>
+            </div>
+          </div>
+        </div>
+
+        <div ng-switch-when="pharmacyMedicineStock">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Preffered Pharmacy : {{customer.Preferred_Pharmacy}} </h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <p>List of Medicines prescribed Earlier</p>
+              <br>
+              <textarea value="Medicine 1"></textarea>
+              <br>
+              <a class="btn btn-default" ng-click="changeModalTab('medicineStockPharmacyPickUp')">Place Order</a>
+              
+            </div>
+          </div>
+        </div>
+
+
+        <div ng-switch-when="medicineStockPharmacyPickUp">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Would You like to opt for </h4>
+          </div>
+          <div class="modal-body">
+            <div class="center-block">
+              <a class="btn btn-default" ng-click="changeModalTab('medicineStockPharmacyPickupOrderConfirmation')">Pick up medicine from Store (High)</a>
+              <br>
+              <a class="btn btn-default">Door Delivery (Medium)</a>              
+            </div>
+          </div>
+        </div>
+
+        <div ng-switch-when="medicineStockPharmacyPickupOrderConfirmation">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title center-block">Order Confirmation</h4>
+          </div>
+          <div class="modal-body">
+            <p>Order Placed For medicine </p>
+            <p>Order Number ON10001</p>
+            <p>Preferred time to take away medicine from store 6-6.30 PM</p>
+            <br>
+            <br>
+            <p>Cab Booking Successful</p>
+            <p>Booking Number CB11001</p>
+            <p>Pick up time is 5.30 PM</p>
+          </div>
+        </div>
+
+      </div><!-- end of  ng-switch-->
+      
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
