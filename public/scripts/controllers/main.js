@@ -18,4 +18,18 @@ angular.module('healthmgmtApp')
     $scope.changeModalTab = function(tab){
     	$scope.notificationModalTab = tab;
     }
+
+    $('#card-content .panel').click(
+      function(){
+        $('#card-content').removeClass('col-lg-8');
+        $('#card-content').addClass('col-lg-3');
+        $('#detail').removeClass('collapse'); 
+        $('#detail').addClass('col-lg-5'); 
+      })    
+    $('#detail').click(function(){ 
+      $('#card-content').removeClass('col-lg-3');
+      $('#card-content').addClass('col-lg-8');
+      $('#detail').removeClass('col-lg-5'); 
+      $('#detail').addClass('collapse'); 
+    })  
   });
