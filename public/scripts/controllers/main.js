@@ -23,13 +23,14 @@ angular.module('healthmgmtApp')
       function(){
         $('#card-content').removeClass('col-lg-8');
         $('#card-content').addClass('col-lg-3');
-        $('#detail').removeClass('collapse'); 
+        
         $('#detail').addClass('col-lg-5'); 
+        $('#detail').removeClass('collapse col-lg-1'); 
       })    
     $('#detail').click(function(){ 
       $('#card-content').removeClass('col-lg-3');
       $('#card-content').addClass('col-lg-8');
       $('#detail').removeClass('col-lg-5'); 
-      $('#detail').addClass('collapse'); 
+      $('#detail').addClass('collapse col-lg-1'); 
     })  
   });

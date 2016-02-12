@@ -9,6 +9,7 @@
 .header,
 .marketing,
 .footer {
+
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -20,17 +21,25 @@
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
+  
   line-height: 40px;
   padding-bottom: 19px;
 }
 
 /* Custom page footer */
 .footer {
+  z-index: 4;
+  width: 100%;
+  position: fixed;
+  background: white;
+  bottom : 0;
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+  margin : auto;
+}
+.footer p {
+  text-align: center;
 }
 
 .container-narrow > hr {
@@ -145,7 +154,31 @@ body {
   text-align: center;
 }
 
-.custom-fitness-panel img {
+.row div.col-lg-8 .custom-fitness-panel img {
     height: 200px;
     width: 100%;
+}
+.row div.col-lg-3 .custom-fitness-panel img {
+    height: 50px;
+    width: 100%;
+}
+
+.row div.col-lg-3 .card p.lead{
+  font-size: 10px;
+}
+
+#card-content {
+    transition-property: width;
+    transition-duration: .5s;
+    transition-timing-function: linear;    
+}
+#card-content img {
+    transition-property: height;
+    transition-duration: .5s;
+    transition-timing-function: linear;    
+}
+#detail{
+  transition-property: width;
+  transition-delay: .5s; 
+  transition-timing-function: linear; 
 }
