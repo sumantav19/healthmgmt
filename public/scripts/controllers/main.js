@@ -18,6 +18,11 @@ angular.module('healthmgmtApp')
     $scope.changeModalTab = function(tab){
     	$scope.notificationModalTab = tab;
     }
+    $scope.detailTab='';
+    $scope.setDetailTab = function  (argument) {
+      // body...
+      $scope.detailTab = argument;
+    }
 
     $('#card-content .panel').click(
       function(){
